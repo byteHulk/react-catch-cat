@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+import { HashRouter } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
+
+import routes from './routes/index'
+
+import * as serviceWorker from './serviceWorker';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ReactDOM.render(
+  <HashRouter>
+    {renderRoutes(routes)}
+  </HashRouter>,
+  document.getElementById('root')
+);
 
-export default App;
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
