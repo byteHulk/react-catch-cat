@@ -1,0 +1,17 @@
+.Head {
+    width: 100%;
+}
+
+.box-bg {
+    background: #FFB74A;
+    padding-bottom: 1.6em;
+    width: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    /* opacity: .5; */
+}
+
+.box-bg h1 {
+    text-align: center;
+    margin: 0;
+}

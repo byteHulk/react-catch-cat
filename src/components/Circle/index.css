@@ -1,0 +1,14 @@
+.Circle {
+    border-radius: 50%;
+    min-width: 1.9rem;
+    min-height: 1.9rem;
+    /* height:0;
+    padding-bottom:100%; */
+    background: #FFB74A;
+    flex-grow:1;
+    margin: .1em;
+    box-shadow: 0 5px 10px rgba(0,0,0,1);
+}
+.dark{
+    /* background: #CC8220; */
+}
