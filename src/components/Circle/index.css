@@ -7,8 +7,9 @@
     background: #FFB74A;
     flex-grow:1;
     margin: .1em;
-    box-shadow: 0 5px 10px rgba(0,0,0,1);
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
-.dark{
-    /* background: #CC8220; */
+.wall{
+    background: gold;
+    /* box-shadow: 0 5px 10px rgba(0,0,0,.0); */
 }

@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import className from 'classnames'
 
 import './index.css';
 
 import Square from '../Circle'
+import Cat from '../Cat'
+
 
 function Board(props) {
-    let state = {
-        w: Array(11).fill(1),
-        h: Array(11).fill(1)
-    }
-    console.log(state.w)
+    const [w, setW] = useState(Array(props.w).fill(1))
+    const [h, setH] = useState(Array(props.h).fill(1))
+    // const [wallObj, setWallObj] = useState({})
+    // setWallObj([])
+    // // setWallObj(randomWall(props.w,props.h))
+    console.log(props.wallObj)
+    // useEffect(() => {
+        
+       
+    // });
+
 
     return (
         <div className="Board">
             <ul className="box">
                 {
-                    state.w.map((e, i) =>
-                        <li key={`sq-w-${i}`} className={className({'box-li':true,'box-li-s':i%2 === 1})}>
+                    w.map((row, rowIndex) =>
+                        <li key={`sq-w-${rowIndex}`} className={className({ 'box-li': true, 'box-li-s': rowIndex % 2 === 1 })}>
                             {
-                                state.h.map((e, i) => <Square key={`sq-h-${i}`} styleType = {i%2 === 0}></Square>)
+                                h.map((column, columnIndex) => <Square key={`sq-h-${columnIndex}`} isWall={`grid-${rowIndex}-${columnIndex}` in props.wallObj}></Square>)
                             }
                         </li>)
                 }
+                <Cat></Cat>
             </ul>
         </div>
     );
 }
+
 
 export default Board;

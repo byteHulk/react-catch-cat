@@ -1,0 +1,12 @@
+.Cat{
+    background: url('./1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top:40.5%;
+    left:44%;
+}
+
+/* @keyframes  */

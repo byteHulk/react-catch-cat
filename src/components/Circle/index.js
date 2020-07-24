@@ -5,9 +5,9 @@ import './index.css';
 
 
 function Circle(props) {
-  console.log(props)
+  
   return (
-    <div className={className({Circle:true,dark: props.styleType})}></div>
+    <div className={className({Circle:true,wall: props.isWall})}></div>
   );
 }
 
