@@ -8,30 +8,45 @@ import Cat from '../Cat'
 
 
 function Board(props) {
-    const [w, setW] = useState(Array(props.w).fill(1))
-    const [h, setH] = useState(Array(props.h).fill(1))
-    // const [wallObj, setWallObj] = useState({})
-    // setWallObj([])
-    // // setWallObj(randomWall(props.w,props.h))
-    console.log(props.wallObj)
-    // useEffect(() => {
-        
-       
-    // });
+    const [wallArr, setWallArr] = useState([])
+    const [catPos,setCatPos] = useState([6,6])
 
+    useEffect(_ => {
+        let arr = Array(props.w).fill(1).map(_ => Array(props.h).fill(false))
+        for (let k = 0; k < 8; k++) {
+
+            let i = Math.floor(props.w * Math.random());
+            let j = Math.floor(props.h * Math.random());
+
+            if (i !== 5 || j !== 5) {
+                arr[i][j]= true
+            }
+        }
+        setWallArr(arr)
+
+    }, [])
+
+
+    const addWall = (i,j)=>{
+        let arr = JSON.parse(JSON.stringify(wallArr))
+        arr[i][j] = true
+        setWallArr(arr)
+
+    }
+    
 
     return (
         <div className="Board">
             <ul className="box">
                 {
-                    w.map((row, rowIndex) =>
+                    wallArr.map((row, rowIndex) =>
                         <li key={`sq-w-${rowIndex}`} className={className({ 'box-li': true, 'box-li-s': rowIndex % 2 === 1 })}>
                             {
-                                h.map((column, columnIndex) => <Square key={`sq-h-${columnIndex}`} isWall={`grid-${rowIndex}-${columnIndex}` in props.wallObj}></Square>)
+                                row.map((column, columnIndex) => <Square id={`sq-${rowIndex}-${columnIndex}`} key={`sq-${rowIndex}-${columnIndex}`} isWall={wallArr[rowIndex][columnIndex]} event={()=>addWall(rowIndex,columnIndex)}></Square>)
                             }
                         </li>)
                 }
-                <Cat></Cat>
+                <Cat catPos={catPos}></Cat>
             </ul>
         </div>
     );

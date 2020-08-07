@@ -1,12 +1,29 @@
-.Cat{
-    background: url('./1.png');
+.Cat {
+    background       : url('./1.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    width: 3rem;
-    height: 3rem;
-    position: absolute;
-    top:40.5%;
-    left:44%;
+    background-size  : 100%;
+    width            : 2rem;
+    height           : 3rem;
+    position         : absolute;
+    top              : 40.5%;
+    left             : 49%;
+    /* animation        : mymove 5s; */
 }
 
-/* @keyframes  */
+@keyframes mymove {
+    0% {
+        background: url('./4.png');
+    }
+
+    25% {
+        background: url('./4.png');;
+    }
+
+    50% {
+        background: blue;
+    }
+
+    100% {
+        background: green;
+    }
+}
